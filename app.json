@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "Fintra",
+    "slug": "fintra-crm",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "icon": "./assets/fintra-icon.png",
+    "android": {
+      "package": "ch.fintra.crm",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/fintra-adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "permissions": []
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Fintra benötigt Zugriff auf das ausgewählte Bild, um Kundendaten zu erfassen.",
+          "cameraPermission": "Fintra benötigt die Kamera, um Kundendokumente zu erfassen.",
+          "microphonePermission": false
+        }
+      ]
+    ],
+    "extra": {
+      "environment": "demo"
+    }
+  }
+}
