@@ -1,1 +1,52 @@
+name: Fintra Android APK
 
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Quellcode laden
+        uses: actions/checkout@v4
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Java einrichten
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Logo-Dateien vorbereiten
+        run: |
+          mkdir -p assets
+          cp fintra-icon.png assets/fintra-icon.png
+          cp fintra-adaptive-icon.png assets/fintra-adaptive-icon.png
+          cp fintra-logo.png assets/fintra-logo.png
+
+      - name: Abhängigkeiten installieren
+        run: npm ci
+
+      - name: Android-Projekt erstellen
+        run: CI=1 npx expo prebuild --platform android --clean
+
+      - name: APK erstellen
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      - name: APK bereitstellen
+        uses: actions/upload-artifact@v4
+        with:
+          name: Fintra-Android-APK
+          path: android/app/build/outputs/apk/debug/app-debug.apk
