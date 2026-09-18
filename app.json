@@ -5,6 +5,7 @@
     "version": "0.1.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
+    "newArchEnabled": false,
     "icon": "./assets/fintra-icon.png",
     "android": {
       "package": "ch.fintra.crm",
