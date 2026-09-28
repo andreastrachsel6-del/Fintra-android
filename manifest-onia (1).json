@@ -1,0 +1,32 @@
+{
+ "name": "ONIA",
+ "short_name": "ONIA",
+ "description": "One. Independent. Advice.",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "orientation": "portrait",
+ "background_color": "#EDE9E0",
+ "theme_color": "#8A7350",
+ "lang": "de",
+ "icons": [
+  {
+   "src": "icon-onia-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icon-onia-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icon-onia-maskable-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ]
+}
